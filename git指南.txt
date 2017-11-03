@@ -1,0 +1,96 @@
+git  操作文件:
+				mkdir test       //创建test文件夹   工作区创建
+				rm -rf test      //删除文件夹       工作区创建
+				touch test.txt   //新建文件test     工作区创建         未提交    
+				vi test.txt      //编辑文件         工作区创建
+				rm test.txt      //删除文件         工作区创建
+				git rm test.txt  //删除             版本库中的版本  不可恢复
+				git checkout -- test.txt   //从版本库中恢复test文件
+				
+
+
+
+
+git配置：
+		git config --global user.name "bright"  //配置用户名
+		git config --global user.email "bright.ml.zhang@mail.foxconn.com"   //配置邮箱
+		
+		ssh-keygen -t rsa -C "bright.ml.zhang@mail.foxconn.com" //生成秘钥在    users/.ssh/id_rsa(私钥) 和id_rsa.pub(共钥)
+
+与github连接
+			
+			将id_rsa.pub的内容复制到github中的SSH keys里
+			ssh -T git@10.167.194.27    //测试连接10.167.194.27服务器  return "Welcome to GitLab, bright!"
+			
+		
+
+本地创建git仓库：
+
+				切换到要新建的git仓库目录
+				
+				git init  //初始化该文件夹就变成一个git仓库
+				
+				git add .  git add fileName     //前者是将该文件夹下所有文件有工作区变成暂存区(Stage)  后者是指定某个文件由工作区变成暂存区 
+				
+				git commit -m "注释"            //是把暂存区提交到分支上 默认为master(主分支)
+				
+				git reflog                      //记录命令历史
+				git log                        //查看提交时历史的注释   或者  git log --pretty=oneline  日志输出一条直线
+				
+						commit 3628164fb26d48395383f8f31179f24e0882e1e0    commit id  (版本号)
+						Author: Michael Liao <askxuefeng@gmail.com>        Author     (作者)
+						Date:   Tue Aug 20 15:11:49 2013 +0800             Date       (时间)
+
+							append GPL                                     注释的内容 
+
+				
+				
+				git reset --hard HEAD^    //版本回退                 HEAD^(^表示回退上一个版本  ^^表示回退上上个版本)     
+				
+				git status                     //查看当前状态 工作区是否添加到暂存区(Stage) 暂存区是提交了
+				
+				git checkout -- file          // 一种是file自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；只对工作区有效
+											
+				git diff
+				
+远程仓库：
+		
+		git remote add origin git@10.167.194.27:zhangml/learnGit.git     //与远程仓库添加关联    origin 远程的名字
+		
+		git push origin bright            //把本地分支推送到远程
+		
+		git branch --set-upstream bright  //与远程的分支关联，
+		
+		git pull                         //把主分支的代码拉取下来
+		
+		
+			
+		
+		git push -u  origin master //由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+		git push  //push一次 下次push就使用命令git push就好
+		
+		git clone git@10.167.194.27:robinwu/genius.git    //克隆远程的库；
+		
+		
+分支管理：
+
+		git checkout - b bright      //创建分支并切换分支       相当于 git branch bright(创建分支)    和 git checkout bright(切换分支)
+		
+		git branch   //查看分支
+		
+		git branch -d bright    //删除分支为bright
+		
+		
+合并分支代码：
+
+			git checkout master    //切换到主分支
+			git merge bright       //合并分支为bright 的代码
+			
+			
+解决冲突： 
+			当分支与主分支同事改变某一个内容是会产生冲突  冲突标志性代码有(CONFLICT (content): Merge conflict in bright.txt
+)  待解决
+
+				
+
+		
