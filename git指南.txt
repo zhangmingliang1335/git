@@ -81,6 +81,13 @@ git配置：
 		git branch -d bright    //删除分支为bright
 		
 		
+		git push origin :bright  //删除远程分支 注意origin之后有个空格   并且本地分支要切换到其他分支
+		
+		git push origin bright:bright  //推送本地分支到远程
+		
+		git push --set-upstream origin bright  //与远程分支相关联
+		
+		
 合并分支代码：
 
 			git checkout master    //切换到主分支
