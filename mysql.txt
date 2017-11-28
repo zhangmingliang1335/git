@@ -204,7 +204,9 @@ SQL语言：由
 调用存储过程  call sp_name();	
 
 
-查看存储过程：show procedure status  	
+查看存储过程：show procedure status  
+
+讲的很详细：http://cache.baiducontent.com/c?m=9f65cb4a8c8507ed4fece7631046893b4c4380146d96864968d4e414c42246101d26b8fd7c7e431980853a3c50f11e41bca770216c5d61aa9dc9884ed8b895293bcd7a742613d90a539047b8ca3632b126872dedb869e1ad833284afa2c4af5f44be25120a81e7fa2b1715ba7880622692d78e38144861cb&p=853bc64ad4934eac58eacc37160d9e&newp=8c70d715d9c041a803bcc7710f4e8c231610db2151d7d701298ffe0cc4241a1a1a3aecbf21291207d2c67e6703a4485deff73c79320634f1f689df08d2ecce7e74d9&user=baidu&fm=sc&query=mysql%B4%E6%B4%A2%B9%FD%B3%CC%BD%CC%B3%CC&qid=8eca161700004233&p1=5   
 				
 
 			  
